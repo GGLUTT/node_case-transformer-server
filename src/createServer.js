@@ -5,7 +5,7 @@
 const http = require('http');
 
 const createServer = () => {
-  const server = http.createServer((req, res) => {
+  const servers = http.createServer((req, res) => {
     const { searchParams } = new URL(req.url, `http://${req.headers.host}`);
     const query = Object.fromEntries(searchParams.entries());
 
@@ -55,7 +55,7 @@ const createServer = () => {
     res.end(JSON.stringify({ result: transformedText }));
   });
 
-  return server;
+  return servers;
 };
 
 module.exports = {
